@@ -1,0 +1,68 @@
+<html>
+
+<head>
+<title>GobblerWare Documentation</title>
+</head>
+
+<body>
+
+<h1>GobblerWare Documentation</h1>
+<hr>
+
+<h2>Table of Contents</h2>
+<ol>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#samplegames">Using the Sample Games</a></li>
+<li><a href="#customgames">Using Your Own Games</a></li>
+<li><a href="#makinggames">Making Your Own Games</a></li>
+</ol>
+
+
+<hr>
+<h2>GobblerWare Overview</h2>
+<a name="overview"/>
+<img src="img/GobblerWareOverview.jpg"><br/>
+<p>GobblerWare is a Wizard Jam community inspired "Game Anthology" system for Unity jam games. It can be used to make game collections for jam games, trash games, "WarioWare" style collections, etc.</p>
+
+
+<hr>
+<a name="samplegames"/>
+<h2>Using the Sample Games</h2>
+<img src="img/GameSample.jpg"><br/>
+<p>To run the sample games, open the GobblerWareMainMenu_0.unity scene and play. Choose a game (e.g. Game 2) by clicking the button. The game will launch. When the game ends, the player will return to the GobblerWareMainMenu_0 scene and the score will be updated.</p>
+
+
+<hr>
+<a name="customgames"/>
+<h2>Using Your Own Games</h2>
+<p>To use your own games, you need to set up the GobblerWareMenu prefab so that each button is assigned an index that corresponds to a scene index in the Build Settings.</p>
+<ol>
+<li>Choose a game's main scene, and add it to the Build Settings. Let's say "SomeGWGame" and the scene is called "MyGameScene". Add it to index 1.</li>
+<li>Choose the GameButton_01 object inside the ButtonPanel child of the GobblerWareMenu prefab.</li>
+<li>Assign the scene index that matches the desired scene AND button to the GobblerWareMenu.BeginGame() event variable in the Inspector.</li>
+</ol>
+<img src="img/GameSetup.jpg"><br/>
+<p>When you're done, the menu will have GameButton_01 assigned to start the game whose main scene is at scene index 1 in the build settings.</p>
+<p>To add more buttons for more games, simply duplicate the latest button, move it to the desired location on the UI, and assign a game's scene to it. Don't forget to add the game's scene to the build settings!</p>
+
+
+<hr>
+<a name="makinggames"/>
+<h2>Making Your Own Games</h2>
+
+
+<p>To make games compatible with the GobblerWare system, follow these steps:</p>
+
+<img src="img/SampleGameCode.jpg"><br/>
+
+<ol>
+<li>ensure you are using WizardJam.GobblerWare; namespace</li>
+<li>When your game should end, call GobblerWareManager.Instance.EndGame(score) where score captures the points your game should contribute to the overall game collection score.</li>
+</ol>
+
+<p>That's it! Refer to the sample game scripts in the SomeGWGame and AnotherGame project sub-folders.</p>
+
+
+</body>
+
+</html>
